@@ -70,15 +70,7 @@ RUN chmod 0600 ~/.ssh/authorized_keys
 RUN $HADOOP_HOME/bin/hdfs namenode -format
 
 #----Installing Hive----------------------------------------
-RUN mkdir hive
-RUN wget https://dlcdn.apache.org/hive/hive-3.1.3/apache-hive-3.1.3-bin.tar.gz
-RUN tar -xzvf apache-hive-3.1.3-bin.tar.gz -C ./hive
-RUN rm apache-hive-3.1.3-bin.tar.gz
-RUN rm -rf ./hive/apache-hive-3.1.3-bin/lib/guava-19.0.jar
-ADD ./hive_config/guava-27.0-jre.jar ./hive/apache-hive-3.1.3-bin/lib/
-ADD ./hive_config/hive-env.sh ./hive/apache-hive-3.1.3-bin/conf/
-ADD ./hive_config/hive-site.xml ./hive/apache-hive-3.1.3-bin/conf/
-RUN echo "export HIVE_HOME=./hive/apache-hive-3.1.3-bin" >>.bashrc
+
 
 #-----Installing Spark-------------------------------------
 RUN mkdir spark
@@ -137,8 +129,7 @@ ENV PATH=$PATH:$KAFKA_HOME/bin
 # RUN hdfs dfs -mkdir /kafka_output
 
 # RUN service ssh start
-# RUN $HADOOP_HOME/sbin/start-dfs.sh \
-#     && $HADOOP_HOME/sbin/start-yarn.sh
+# RUN $HADOOP_HOME/sbin/start-dfs.sh && $HADOOP_HOME/sbin/start-yarn.sh
 # RUN jps
 
 
