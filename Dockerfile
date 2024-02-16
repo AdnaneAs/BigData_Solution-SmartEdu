@@ -8,12 +8,15 @@ RUN apt-get install nano sudo
 RUN apt-get -y install openjdk-11-jdk
 ENV JAVA_HOME /usr/lib/jvm/java-11-openjdk-amd64
 ENV PATH $PATH:/usr/lib/jvm/java-11-openjdk-amd64/bin
+RUN apt-get -y install ffmpeg
 
 #----Installing python-----------------------------------------
 RUN apt-get -y install python3.9 python3-pip
 RUN pip3 install --upgrade pip setuptools
 RUN pip3 install jupyter
 RUN pip3 install pandas numpy matplotlib opencv-python confluent_kafka kafka_python hdfs 
+RUN pip3 install ffmpeg-python
+RUN pip3 install deepface
 
 #-----Installing hadoop-----------------------------
 RUN mkdir hadoop
