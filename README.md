@@ -62,4 +62,10 @@ docker-compose down
 1. open a jupyter notebook in you browser (its already installed and running, you will find the link in the terminal where you run the conatiner ```docker-compose up```)
 
 2. open ```kafka_producer.ipynb``` and run the cell
-3. open ```kafka_consumer.ipynb``` and run the cell -->
+3. open ```kafka_consumer.ipynb``` and run the cell
+
+### You can acced to the interface via 
+
+```bash
+localhost:3000
+``` -->
